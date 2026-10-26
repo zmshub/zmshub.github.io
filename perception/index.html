@@ -1,353 +1,257 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Perception — See it differently.</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&display=swap"
-    />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-    <link rel="apple-touch-icon" href="favicon-180.png" />
-    <meta name="theme-color" content="#0C0C10" />
-    <meta property="og:title" content="Perception — See it differently." />
-    <meta property="og:description" content="Design, light, colour and AI change how we see everything. Same thing. New perception." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://zmshub.github.io/perception/" />
-    <meta property="og:image" content="https://zmshub.github.io/perception/og-share-1200x630.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Perception — See it differently." />
-    <meta name="twitter:description" content="Design, light, colour and AI change how we see everything. Same thing. New perception." />
-    <meta name="twitter:image" content="https://zmshub.github.io/perception/og-share-1200x630.png" />
-    <link rel="stylesheet" href="zms-ui.css" />
-    <link rel="stylesheet" href="zms-ui-hero.css" />
-    <style>
-      /* Perception look: near-black page with a holographic chrome accent */
-      :root {
-        --x-holo: linear-gradient(100deg, #b69cff 0%, #7fe3f0 45%, #f3d58a 100%);
-      }
-      :root[data-theme="dark"] {
-        --fill-primary-on: #0a0a0c;
-        --fill-tertiary: #17171b;
-      }
-      .x-holo::after {
-        content: "";
-        display: block;
-        width: 72px;
-        height: 3px;
-        margin-top: 12px;
-        border-radius: var(--r-pill);
-        background: var(--x-holo);
-      }
-      .main > .section {
-        border-top: 1px solid transparent;
-        border-image: var(--x-holo) 1;
-        border-image-width: 1px 0 0 0;
-      }
-      .x-chrome {
-        border: 1px solid transparent;
-        background:
-          linear-gradient(var(--fill-primary-on), var(--fill-primary-on)) padding-box,
-          var(--x-holo) border-box;
-      }
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Perception — See it differently.</title>
+<meta name="description" content="Perception is a worldwide visual media channel by ZMS about how design, light, colour and generative tech change what people believe they see. Same thing. New perception.">
+<link rel="canonical" href="https://zmshub.github.io/perception/">
+<meta name="theme-color" content="#0C0C10">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
+<meta property="og:site_name" content="Perception">
+<meta property="og:title" content="Perception — See it differently.">
+<meta property="og:description" content="Design, light, colour and generative tech change how we see everything. Same thing. New perception.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zmshub.github.io/perception/">
+<meta property="og:image" content="https://zmshub.github.io/perception/og-share-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Perception — See it differently.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Perception — See it differently.">
+<meta name="twitter:description" content="Design, light, colour and generative tech change how we see everything. Same thing. New perception.">
+<meta name="twitter:image" content="https://zmshub.github.io/perception/og-share-1200x630.png">
+<link rel="preload" href="montserrat.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.className="js";</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://zmshub.github.io/perception/#org", "name": "Perception", "slogan": "See it differently.", "url": "https://zmshub.github.io/perception/", "logo": "https://zmshub.github.io/perception/perception-mark-white.png", "sameAs": ["https://www.instagram.com/zerominutestudios.zms/"], "parentOrganization": {"@type": "Organization", "name": "ZMS", "url": "https://zerominutestudios.ing.ng"}}, {"@type": "WebSite", "@id": "https://zmshub.github.io/perception/#site", "name": "Perception — See it differently.", "url": "https://zmshub.github.io/perception/", "description": "Perception is a worldwide visual media channel by ZMS about how design, light, colour and generative tech change what people believe they see. Same thing. New perception.", "inLanguage": "en", "publisher": {"@id": "https://zmshub.github.io/perception/#org"}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="aura" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="spot"></i></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><i class="cursor__dot"></i><i class="cursor__ring"><b class="cursor__txt"></b></i></div>
+<div class="progress" aria-hidden="true"><i></i></div>
 
-      /* Test your perception */
-      .x-illusion {
-        display: grid;
-        gap: 16px;
-        padding: 22px 24px;
-        border-radius: var(--r-m);
-        background: var(--fill-tertiary);
-      }
-      .x-illusion__stage {
-        position: relative;
-        aspect-ratio: 2 / 1;
-        max-height: 320px;
-        border-radius: var(--r-s);
-        overflow: hidden;
-        background: #6e6e6e;
-      }
-      .x-illusion__grad {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(90deg, #f2f2f2 0%, #121212 100%);
-        transition: opacity 900ms var(--ease-out);
-      }
-      .x-illusion__sq,
-      .x-illusion__bar {
-        position: absolute;
-        background: #808080;
-      }
-      .x-illusion__sq {
-        top: 30%;
-        width: 22%;
-        height: 40%;
-      }
-      .x-illusion__sq--a { left: 12%; }
-      .x-illusion__sq--b { right: 12%; }
-      .x-illusion__bar {
-        top: 44%;
-        left: 34%;
-        width: 32%;
-        height: 12%;
-        transform: scaleX(0);
-        transform-origin: left center;
-        transition: transform 900ms var(--ease-out);
-      }
-      .x-illusion.is-revealed .x-illusion__bar { transform: scaleX(1); }
-      .x-illusion.is-revealed .x-illusion__grad { opacity: 0; transition-delay: 700ms; }
-      .x-illusion__row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
-      .x-illusion__row p { color: var(--text-secondary); font: var(--type-small); }
-      .x-illusion button.btn { cursor: pointer; }
-      @media (prefers-reduced-motion: reduce) {
-        .x-illusion__bar, .x-illusion__grad { transition: none; }
-      }
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Perception, back to top">
+    <img class="brand__mark" src="mark-white.webp" width="180" height="240" alt="">
+    <span class="brand__word">PERCEPTION</span>
+  </a>
+  <nav class="nav__links" id="menu" aria-label="Sections">
+    <a href="#series">Series</a><a href="#lens">Lens</a><a href="#lab">Lab</a><a href="#shop">Shop</a><a href="#work">Work</a>
+    <a class="nav__cta-m" href="https://zerominutestudios.ing.ng" target="_blank" rel="noopener">Work with ZMS</a>
+  </nav>
+  <a class="btn btn--sm btn--chrome nav__cta magnetic" href="https://zerominutestudios.ing.ng" target="_blank" rel="noopener"><span>Work with ZMS</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><i></i><i></i></button>
+</header>
 
-      /* Perception logo mark: white on dark theme, dark on light theme */
-      .x-brand { display: inline-flex; align-items: center; gap: 10px; justify-self: start; }
-      .x-brand__mark { height: 32px; width: auto; flex: none; object-fit: contain; }
-      .x-brand__word { font: var(--type-label); letter-spacing: 0.18em; }
-      .foot .x-brand { display: flex; gap: 12px; flex: 1 1 24rem; min-width: 0; }
-      .foot .x-brand__mark { height: 28px; }
-      .x-mark--dark { display: none; }
-      :root[data-theme="light"] .x-mark--white { display: none; }
-      :root[data-theme="light"] .x-mark--dark { display: block; }
-      @media (prefers-color-scheme: light) {
-        :root:not([data-theme]) .x-mark--white { display: none; }
-        :root:not([data-theme]) .x-mark--dark { display: block; }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="page" id="top">
-      <header class="nav glass" data-auto></header>
-      <main class="main">
-        <section class="hero">
-          <img class="hero__img" src="perception-hero-v2.png" alt="A white cube casting a perfectly round shadow" />
-          <div class="hero__copy">
-            <div class="x-brand">
-              <img class="x-brand__mark" src="perception-mark-white.png" alt="Perception logo" width="861" height="1151" />
-              <span class="x-brand__word">PERCEPTION</span>
-            </div>
-            <h1 class="x-holo">Perception</h1>
-            <p class="hero__sub">See it differently.</p>
-            <p class="hero__meta">Same cube. Same shoe. Same photo. Only the perception changed. New visual experiments every day.</p>
-          </div>
-          <aside class="callout" aria-label="Next step">
-            <p class="callout__head">Same thing. New perception.</p>
-            <p class="callout__lead">
-              <strong>Design, light, colour and AI</strong> change what people believe they are seeing.
-            </p>
-            <div class="links">
-              <a class="btn x-chrome" href="#series">Explore the series</a>
-              <a class="btn" href="https://zerominutestudios.ing.ng" target="_blank" rel="noopener">Work with ZMS</a>
-            </div>
-          </aside>
-        </section>
-
-        <section class="section" id="series" data-nav="Series">
-          <div class="head">
-            <p class="head__eyebrow">The series</p>
-            <h2 class="x-holo">Eight experiments in how we see.</h2>
-            <p class="head__sub">Each one ends with something ZMS can make for you.</p>
-          </div>
-          <div class="cards">
-            <div>
-              <figure class="cards__media"><img src="series-optical.png" alt="Optical Truths: two same-colour squares that look different" /></figure>
-              <h3>Optical Truths</h3>
-              <p class="quote">These two squares are the same colour. Your brain disagrees.</p>
-              <p class="sub">Lesson: context changes how your brand looks.</p>
-              <div class="links" style="margin-top: 14px">
-                <a class="btn x-chrome" href="https://superprofile.bio/vp/colourfunn-both-books-bundle---40-coloring-pages" target="_blank" rel="noopener">Kids colouring books by Colourfunn</a>
-              </div>
-            </div>
-            <div>
-              <figure class="cards__media"><img src="series-5perceptions.png" alt="One sneaker photographed five ways" /></figure>
-              <h3>Same Product, 5 Perceptions</h3>
-              <p class="quote">Same sneaker. Five price tags. Only the photo changed.</p>
-              <div class="links" style="margin-top: 14px">
-                <a class="btn x-chrome" href="https://superprofile.bio/vp/zms-ai-product-shots---5-ai-product-photos-in-24h" target="_blank" rel="noopener">Get ZMS AI Product Shots (₹299 · 5 photos in 24h)</a>
-              </div>
-            </div>
-            <div>
-              <figure class="cards__media"><img src="series-logo.png" alt="A single letter turned into a brand mark" /></figure>
-              <h3>Logo in 0 Minutes</h3>
-              <p class="quote">One letter. Zero minutes. A whole brand.</p>
-              <div class="links" style="margin-top: 14px">
-                <a class="btn x-chrome" href="https://zmshub.github.io/zms/logo/" target="_blank" rel="noopener">ZMS Logo Express (₹499 · 2 concepts in 24h)</a>
-              </div>
-            </div>
-            <div>
-              <figure class="cards__media"><img src="series-feed.png" alt="A social feed before and after a glow-up" /></figure>
-              <h3>Feed Glow-Up</h3>
-              <p class="quote">Your feed is your shop window. One day of content changes everything.</p>
-              <div class="links" style="margin-top: 14px">
-                <a class="btn x-chrome" href="https://zmshub.github.io/zms/growth-pack/" target="_blank" rel="noopener">24-Hour Growth Pack (from $49)</a>
-              </div>
-            </div>
-            <div>
-              <figure class="cards__media"><img src="series-timemachine.png" alt="An old photo restored and colourised" /></figure>
-              <h3>Time Machine</h3>
-              <p class="quote">100 years. 10 seconds.</p>
-              <p class="sub">Restoring and colourising old photos.</p>
-              <div class="links" style="margin-top: 14px">
-                <a class="btn x-chrome" href="https://superprofile.bio/vp/zms-ai-photo-restoration---restore-and-colourize-old-photos-in-24h-233" target="_blank" rel="noopener">ZMS AI Photo Restoration (₹199 · 24h)</a>
-              </div>
-            </div>
-            <div>
-              <h3>Price Tag Illusion</h3>
-              <p class="quote">Which website looks like it costs $5,000?</p>
-              <div class="links" style="margin-top: 14px">
-                <a class="btn x-chrome" href="https://zerominutestudios.ing.ng" target="_blank" rel="noopener">Websites by ZMS</a>
-              </div>
-            </div>
-            <div>
-              <h3>Redesign Friday</h3>
-              <p class="quote">Every Friday a fictional brand gets a full rebrand.</p>
-              <div class="links" style="margin-top: 14px">
-                <a class="btn x-chrome" href="https://zerominutestudios.ing.ng" target="_blank" rel="noopener">Branding by ZMS</a>
-              </div>
-            </div>
-            <div>
-              <h3>Printable Aesthetic of the Week</h3>
-              <p class="quote">One aesthetic, one planner page.</p>
-              <div class="links" style="margin-top: 14px">
-                <a class="btn x-chrome" href="https://zmshub.github.io/zms/store/" target="_blank" rel="noopener">Browse the ZMS Store</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="numbers" data-nav="Numbers">
-          <div class="head">
-            <p class="head__eyebrow">Perception in numbers</p>
-            <h2 class="x-holo">A channel that speaks in pictures.</h2>
-          </div>
-          <div class="stats">
-            <div class="stat"><span class="stat__fig">8</span><span class="stat__label">Series</span></div>
-            <div class="stat"><span class="stat__fig">Daily</span><span class="stat__label">New visuals</span></div>
-            <div class="stat"><span class="stat__fig">Worldwide</span><span class="stat__label">No language needed</span></div>
-            <div class="stat"><span class="stat__fig">ZMS</span><span class="stat__label">Made by</span></div>
-          </div>
-        </section>
-
-        <section class="section" id="test" data-nav="Test">
-          <div class="head">
-            <p class="head__eyebrow">Try it</p>
-            <h2 class="x-holo">Test your perception.</h2>
-            <p class="head__sub">Which square is darker?</p>
-          </div>
-          <div class="x-illusion" id="illusion">
-            <div class="x-illusion__stage" role="img" aria-label="Two grey squares on a light-to-dark gradient. They are the same grey, #808080.">
-              <div class="x-illusion__grad"></div>
-              <div class="x-illusion__sq x-illusion__sq--a"></div>
-              <div class="x-illusion__bar"></div>
-              <div class="x-illusion__sq x-illusion__sq--b"></div>
-            </div>
-            <div class="x-illusion__row">
-              <button class="btn x-chrome" type="button" id="illusion-btn" aria-pressed="false">Reveal</button>
-              <p id="illusion-msg" aria-live="polite">Context changes everything — including how customers see your brand.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="shop" data-nav="Shop">
-          <div class="head">
-            <p class="head__eyebrow">Shop the perception</p>
-            <h2 class="x-holo">Popular picks from the ZMS Store.</h2>
-          </div>
-          <div class="cards">
-            <div>
-              <h3>Game Night Party Pack</h3>
-              <p class="sub">12 printable party games <span class="pill">₹99</span></p>
-              <div class="links" style="margin-top: 14px">
-                <a class="btn x-chrome" href="https://superprofile.bio/vp/6accd9296ac2510013c0f68a" target="_blank" rel="noopener">Get the pack</a>
-              </div>
-            </div>
-            <div>
-              <h3>Midnight Manor Halloween Escape Room</h3>
-              <p class="sub">A printable escape room <span class="pill">₹199</span></p>
-              <div class="links" style="margin-top: 14px">
-                <a class="btn x-chrome" href="https://superprofile.bio/vp/6aced961f5886e0013cdf75c" target="_blank" rel="noopener">Get the escape room</a>
-              </div>
-            </div>
-            <div>
-              <h3>PromptPop Product Photo Prompts</h3>
-              <p class="sub">For Etsy &amp; Shopify sellers <span class="pill">₹99</span></p>
-              <div class="links" style="margin-top: 14px">
-                <a class="btn x-chrome" href="https://superprofile.bio/vp/promptpop-product-photo-prompts-for-etsy---shopify-sellers--100-ai-prompts" target="_blank" rel="noopener">Get the prompts</a>
-              </div>
-            </div>
-            <div>
-              <h3>Freelancer Business Kit</h3>
-              <p class="sub">Invoice, quote, contract and tracker <span class="pill">₹149</span></p>
-              <div class="links" style="margin-top: 14px">
-                <a class="btn x-chrome" href="https://superprofile.bio/vp/freelancer-business-kit---invoice--quote--contract---tracker" target="_blank" rel="noopener">Get the kit</a>
-              </div>
-            </div>
-            <div>
-              <h3>Wedding Planner</h3>
-              <p class="sub">Budget, guest list &amp; seating <span class="pill">₹249</span></p>
-              <div class="links" style="margin-top: 14px">
-                <a class="btn x-chrome" href="https://superprofile.bio/vp/6ad2521d87e3d00014131f3f" target="_blank" rel="noopener">Get the planner</a>
-              </div>
-            </div>
-          </div>
-          <div class="links">
-            <a class="btn" href="https://zmshub.github.io/zms/store/" target="_blank" rel="noopener">See the full ZMS Store</a>
-          </div>
-        </section>
-
-        <section class="section" id="work" data-nav="Work">
-          <div class="head">
-            <p class="head__eyebrow">Work with ZMS</p>
-            <h2 class="x-holo">Want your brand perceived differently?</h2>
-          </div>
-          <aside class="callout" aria-label="Work with ZMS">
-            <p class="callout__head">ZMS · creative studio</p>
-            <p class="callout__lead">
-              <strong>Logos, brands, websites, AI product photos, reels and a month of content in 24 hours</strong>, for clients worldwide.
-            </p>
-            <div class="links">
-              <a class="btn x-chrome" href="https://zerominutestudios.ing.ng" target="_blank" rel="noopener">ZMS Studios</a>
-              <a class="btn" href="https://zerominutestudio.ing.ng" target="_blank" rel="noopener">ZMS Studio (multimedia)</a>
-              <a class="btn" href="https://zmshub.github.io/" target="_blank" rel="noopener">ZMS Hub</a>
-            </div>
-          </aside>
-        </section>
-      </main>
-      <footer class="foot">
-        <div class="x-brand">
-          <img class="x-brand__mark x-mark--white" src="perception-mark-white.png" alt="Perception logo" width="861" height="1151" />
-          <img class="x-brand__mark x-mark--dark" src="perception-mark-dark.png" alt="Perception logo" width="861" height="1151" />
-        <p>
-          Perception is a media channel by ZMS. Brands shown in Perception series are fictional or concept work. Some visuals are AI-assisted.
-          <a class="link" href="https://www.instagram.com/zerominutestudios/" target="_blank" rel="noopener">Instagram</a> ·
-          <a class="link" href="https://zmshub.github.io/" target="_blank" rel="noopener">ZMS Hub</a> · © 2026 ZMS
-        </p>
+<main id="main">
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero__pin">
+    <div class="hero__stage" id="stage" role="img" aria-label="A white cube casting a perfectly round shadow">
+      <div class="beam"></div>
+      <div class="scene" id="scene">
+        <div class="world" id="world">
+          <div class="floor"><i class="pool"></i><i class="shadow"></i></div>
+          <div class="cube" id="cube"><i class="face f-front"></i><i class="face f-back"></i><i class="face f-right"></i><i class="face f-left"></i><i class="face f-top"></i><i class="face f-bottom"></i></div>
         </div>
-        <nav aria-label="Back to sections" data-auto></nav>
-      </footer>
+      </div>
+      <p class="hero__hint"><span class="hint--fine">Move to look again</span><span class="hint--touch">Drag the cube</span></p>
     </div>
-    <script src="zms-ui.js"></script>
-    <script>
-      (function () {
-        var box = document.getElementById("illusion");
-        var btn = document.getElementById("illusion-btn");
-        var msg = document.getElementById("illusion-msg");
-        var base = "Context changes everything — including how customers see your brand.";
-        btn.addEventListener("click", function () {
-          var on = box.classList.toggle("is-revealed");
-          btn.textContent = on ? "Reset" : "Reveal";
-          btn.setAttribute("aria-pressed", on ? "true" : "false");
-          msg.textContent = on ? "Both squares are #808080. " + base : base;
-        });
-      })();
-    </script>
-  </body>
+    <div class="hero__copy">
+      <p class="eyebrow"><i class="dot"></i>Visual experiments · worldwide</p>
+      <h1 class="hero__title" id="hero-title" data-split>Perception</h1>
+      <p class="hero__sub">See it differently.</p>
+      <p class="hero__meta">Same cube. Same shoe. Same photo. Only the perception changed. New visual experiments every day.</p>
+      <div class="hero__ctas">
+        <a class="btn btn--chrome btn--lg magnetic" href="#series"><span>Explore the series</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn--ghost btn--lg magnetic" href="https://zerominutestudios.ing.ng" target="_blank" rel="noopener"><span>Work with ZMS</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+    <p class="hero__truth" aria-hidden="true"><span>From above, the truth:</span> a square on a perfect circle. <em>Same cube. Only the perception changed.</em></p>
+    <div class="hero__scroll" aria-hidden="true"><i></i>Scroll</div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track"><span>Same cube</span><b>✦</b><span>Same shoe</span><b>✦</b><span>Same photo</span><b>✦</b><span>New perception</span><b>✦</b><span>See it differently</span><b>✦</b><span>Same cube</span><b>✦</b><span>Same shoe</span><b>✦</b><span>Same photo</span><b>✦</b><span>New perception</span><b>✦</b><span>See it differently</span><b>✦</b></div>
+</div>
+
+<section class="section lens" id="lens" aria-labelledby="lens-title">
+  <div class="wrap lens__grid">
+    <div class="lens__copy" data-reveal>
+      <p class="eyebrow"><i class="dot"></i>Same thing. New perception.</p>
+      <h2 class="h2" id="lens-title">One cube. <span class="holo">Four lights.</span></h2>
+      <p class="lead"><strong>Design, light, colour and generative tech</strong> change what people believe they are seeing.</p>
+      <p class="muted">Drag the line across the photo. The cube never changes. Only the light you see it in.</p>
+      <div class="lens__btns" role="group" aria-label="Choose a light">
+        <button type="button" class="chip on" data-lens="warm" aria-pressed="true">Warm</button>
+        <button type="button" class="chip" data-lens="cold" aria-pressed="false">Cold</button>
+        <button type="button" class="chip" data-lens="mono" aria-pressed="false">Mono</button>
+        <button type="button" class="chip" data-lens="neon" aria-pressed="false">Neon</button>
+      </div>
+    </div>
+    <figure class="compare" id="compare" data-lens="warm" data-cursor="Drag" data-reveal>
+      <img class="compare__base" src="cube-photo-1280.webp" srcset="cube-photo-720.webp 720w, cube-photo-1280.webp 1280w" sizes="(min-width: 960px) 56vw, 92vw" width="1280" height="714" loading="lazy" decoding="async" alt="A white cube casting a perfectly round shadow">
+      <div class="compare__top"><img src="cube-photo-1280.webp" srcset="cube-photo-720.webp 720w, cube-photo-1280.webp 1280w" sizes="(min-width: 960px) 56vw, 92vw" width="1280" height="714" loading="lazy" decoding="async" alt=""></div>
+      <span class="compare__tag compare__tag--l">Original</span><span class="compare__tag compare__tag--r" id="lens-name">Warm</span>
+      <span class="compare__handle" aria-hidden="true"><i></i></span>
+      <input class="compare__range" type="range" min="0" max="100" value="50" aria-label="Move the divider between the original photo and the new light">
+    </figure>
+  </div>
+</section>
+
+<section class="section series" id="series" aria-labelledby="series-title">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <p class="eyebrow"><i class="dot"></i>The series</p>
+      <h2 class="h2" id="series-title">Eight experiments in <span class="holo">how we see.</span></h2>
+      <p class="lead">Each one ends with something ZMS can make for you.</p>
+    </div>
+    <div class="series__grid">
+      <div class="series__stage" aria-hidden="true">
+        <div class="stage__frame"><div class="stage__item on" data-i="0"><img class="stage__img" src="s-optical-1280.webp" srcset="s-optical-720.webp 720w, s-optical-1280.webp 1280w" sizes="(min-width: 960px) 52vw, 92vw" width="1280" height="698" loading="lazy" decoding="async" alt="Optical Truths: two same-colour squares that look different"></div><div class="stage__item" data-i="1"><img class="stage__img" src="s-5perceptions-1280.webp" srcset="s-5perceptions-720.webp 720w, s-5perceptions-1280.webp 1280w" sizes="(min-width: 960px) 52vw, 92vw" width="1280" height="698" loading="lazy" decoding="async" alt="One sneaker photographed five ways"></div><div class="stage__item" data-i="2"><img class="stage__img" src="s-logo-1280.webp" srcset="s-logo-720.webp 720w, s-logo-1280.webp 1280w" sizes="(min-width: 960px) 52vw, 92vw" width="1280" height="698" loading="lazy" decoding="async" alt="A single letter turned into a brand mark"></div><div class="stage__item" data-i="3"><img class="stage__img" src="s-feed-1280.webp" srcset="s-feed-720.webp 720w, s-feed-1280.webp 1280w" sizes="(min-width: 960px) 52vw, 92vw" width="1280" height="698" loading="lazy" decoding="async" alt="A social feed before and after a glow-up"></div><div class="stage__item" data-i="4"><img class="stage__img" src="s-timemachine-1280.webp" srcset="s-timemachine-720.webp 720w, s-timemachine-1280.webp 1280w" sizes="(min-width: 960px) 52vw, 92vw" width="1280" height="698" loading="lazy" decoding="async" alt="An old street photo restored and colourised"></div><div class="stage__item" data-i="5"><div class="art art--price" role="img" aria-label="Two website mock-ups side by side: which looks like it costs $5,000?"><div class="win win--a"><i class="win__bar"></i><b>SALE!!!</b><span class="win__l"></span><span class="win__l"></span><span class="win__l s"></span><em>A</em></div><div class="win win--b"><i class="win__bar"></i><b>Studio.</b><span class="win__g"></span><span class="win__l s"></span><em>B</em></div><p class="art__q">$5,000?</p></div></div><div class="stage__item" data-i="6"><div class="art art--friday" role="img" aria-label="A fictional brand name shown before and after a rebrand"><div class="cal"><span>FRI</span><b>Redesign</b></div><div class="rb rb--before">lumo bakery</div><span class="rb__arrow">→</span><div class="rb rb--after">LUMO</div><p class="art__tag">Fictional brand · concept work</p></div></div><div class="stage__item" data-i="7"><div class="art art--print" role="img" aria-label="A printable planner page in a soft aesthetic"><div class="sheet"><p class="sheet__h">This week</p><p class="sheet__row"><i></i><span></span></p><p class="sheet__row"><i></i><span></span></p><p class="sheet__row"><i></i><span></span></p><p class="sheet__row"><i></i><span></span></p><p class="sheet__row"><i></i><span></span></p><div class="sheet__sw"><i></i><i></i><i></i><i></i></div></div></div></div></div>
+        <p class="stage__count"><b id="stage-n">01</b> / 08</p>
+      </div>
+      <ol class="series__list"><li class="exp" data-i="0" data-reveal><div class="exp__media"><img class="exp__img" src="s-optical-1280.webp" srcset="s-optical-720.webp 720w, s-optical-1280.webp 1280w" sizes="(min-width: 960px) 52vw, 92vw" width="1280" height="698" loading="lazy" decoding="async" alt="Optical Truths: two same-colour squares that look different"></div><span class="exp__num">01</span><h3 class="exp__title">Optical Truths</h3><p class="exp__hook">These two squares are the same colour. Your brain disagrees.</p><p class="exp__sub">Lesson: context changes how your brand looks.</p><a class="btn btn--chrome magnetic" href="https://superprofile.bio/vp/colourfunn-both-books-bundle---40-coloring-pages" target="_blank" rel="noopener"><span>Kids colouring books by Colourfunn</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li class="exp" data-i="1" data-reveal><div class="exp__media"><img class="exp__img" src="s-5perceptions-1280.webp" srcset="s-5perceptions-720.webp 720w, s-5perceptions-1280.webp 1280w" sizes="(min-width: 960px) 52vw, 92vw" width="1280" height="698" loading="lazy" decoding="async" alt="One sneaker photographed five ways"></div><span class="exp__num">02</span><h3 class="exp__title">Same Product, 5 Perceptions</h3><p class="exp__hook">Same sneaker. Five price tags. Only the photo changed.</p><a class="btn btn--chrome magnetic" href="https://superprofile.bio/vp/zms-ai-product-shots---5-ai-product-photos-in-24h" target="_blank" rel="noopener"><span>ZMS Product Shots (₹299 · 5 photos in 24h)</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li class="exp" data-i="2" data-reveal><div class="exp__media"><img class="exp__img" src="s-logo-1280.webp" srcset="s-logo-720.webp 720w, s-logo-1280.webp 1280w" sizes="(min-width: 960px) 52vw, 92vw" width="1280" height="698" loading="lazy" decoding="async" alt="A single letter turned into a brand mark"></div><span class="exp__num">03</span><h3 class="exp__title">Logo in 0 Minutes</h3><p class="exp__hook">One letter. Zero minutes. A whole brand.</p><a class="btn btn--chrome magnetic" href="https://zmshub.github.io/zms/logo/" target="_blank" rel="noopener"><span>ZMS Logo Express (₹499 · 2 concepts in 24h)</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li class="exp" data-i="3" data-reveal><div class="exp__media"><img class="exp__img" src="s-feed-1280.webp" srcset="s-feed-720.webp 720w, s-feed-1280.webp 1280w" sizes="(min-width: 960px) 52vw, 92vw" width="1280" height="698" loading="lazy" decoding="async" alt="A social feed before and after a glow-up"></div><span class="exp__num">04</span><h3 class="exp__title">Feed Glow-Up</h3><p class="exp__hook">Your feed is your shop window. One day of content changes everything.</p><a class="btn btn--chrome magnetic" href="https://zmshub.github.io/zms/growth-pack/" target="_blank" rel="noopener"><span>24-Hour Growth Pack (from $49)</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li class="exp" data-i="4" data-reveal><div class="exp__media"><img class="exp__img" src="s-timemachine-1280.webp" srcset="s-timemachine-720.webp 720w, s-timemachine-1280.webp 1280w" sizes="(min-width: 960px) 52vw, 92vw" width="1280" height="698" loading="lazy" decoding="async" alt="An old street photo restored and colourised"></div><span class="exp__num">05</span><h3 class="exp__title">Time Machine</h3><p class="exp__hook">100 years. 10 seconds.</p><p class="exp__sub">Restoring and colourising old photos.</p><a class="btn btn--chrome magnetic" href="https://superprofile.bio/vp/zms-ai-photo-restoration---restore-and-colourize-old-photos-in-24h-233" target="_blank" rel="noopener"><span>ZMS Photo Restoration (₹199 · 24h)</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li class="exp" data-i="5" data-reveal><div class="exp__media"><div class="art art--price" role="img" aria-label="Two website mock-ups side by side: which looks like it costs $5,000?"><div class="win win--a"><i class="win__bar"></i><b>SALE!!!</b><span class="win__l"></span><span class="win__l"></span><span class="win__l s"></span><em>A</em></div><div class="win win--b"><i class="win__bar"></i><b>Studio.</b><span class="win__g"></span><span class="win__l s"></span><em>B</em></div><p class="art__q">$5,000?</p></div></div><span class="exp__num">06</span><h3 class="exp__title">Price Tag Illusion</h3><p class="exp__hook">Which website looks like it costs $5,000?</p><a class="btn btn--chrome magnetic" href="https://zerominutestudios.ing.ng" target="_blank" rel="noopener"><span>Websites by ZMS</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li class="exp" data-i="6" data-reveal><div class="exp__media"><div class="art art--friday" role="img" aria-label="A fictional brand name shown before and after a rebrand"><div class="cal"><span>FRI</span><b>Redesign</b></div><div class="rb rb--before">lumo bakery</div><span class="rb__arrow">→</span><div class="rb rb--after">LUMO</div><p class="art__tag">Fictional brand · concept work</p></div></div><span class="exp__num">07</span><h3 class="exp__title">Redesign Friday</h3><p class="exp__hook">Every Friday a fictional brand gets a full rebrand.</p><a class="btn btn--chrome magnetic" href="https://zerominutestudios.ing.ng" target="_blank" rel="noopener"><span>Branding by ZMS</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li class="exp" data-i="7" data-reveal><div class="exp__media"><div class="art art--print" role="img" aria-label="A printable planner page in a soft aesthetic"><div class="sheet"><p class="sheet__h">This week</p><p class="sheet__row"><i></i><span></span></p><p class="sheet__row"><i></i><span></span></p><p class="sheet__row"><i></i><span></span></p><p class="sheet__row"><i></i><span></span></p><p class="sheet__row"><i></i><span></span></p><div class="sheet__sw"><i></i><i></i><i></i><i></i></div></div></div></div><span class="exp__num">08</span><h3 class="exp__title">Printable Aesthetic of the Week</h3><p class="exp__hook">One aesthetic, one planner page.</p><a class="btn btn--chrome magnetic" href="https://zmshub.github.io/zms/store/" target="_blank" rel="noopener"><span>Browse the ZMS Store</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li></ol>
+    </div>
+  </div>
+</section>
+
+<section class="section numbers" id="numbers" aria-labelledby="numbers-title">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <p class="eyebrow"><i class="dot"></i>Perception in numbers</p>
+      <h2 class="h2" id="numbers-title">A channel that speaks <span class="holo">in pictures.</span></h2>
+    </div>
+    <div class="stats">
+      <div class="stat tilt" data-reveal><span class="stat__fig" data-count="8">8</span><span class="stat__label">series</span><i class="shine" aria-hidden="true"></i></div>
+      <div class="stat tilt" data-reveal><span class="stat__fig" data-scramble>Daily</span><span class="stat__label">new visuals</span><i class="shine" aria-hidden="true"></i></div>
+      <div class="stat tilt" data-reveal><span class="stat__fig stat__fig--s" data-scramble>Worldwide</span><span class="stat__label">no language needed</span><i class="shine" aria-hidden="true"></i></div>
+      <div class="stat tilt" data-reveal><span class="stat__label stat__label--top">made by</span><span class="stat__fig" data-scramble>ZMS</span><i class="shine" aria-hidden="true"></i></div>
+    </div>
+  </div>
+</section>
+
+<section class="section lab" id="lab" aria-labelledby="lab-title">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <p class="eyebrow"><i class="dot"></i>Try it</p>
+      <h2 class="h2" id="lab-title">Test your <span class="holo">perception.</span></h2>
+      <p class="lead">Three real illusions. Trust your eyes first, then press Reveal for the proof.</p>
+    </div>
+    <div class="lab__grid">
+      <article class="exp-card exp-card--wide" id="lab-grey" data-reveal>
+        <header><span class="exp-card__n">Illusion 01</span><h3>Which square is darker?</h3></header>
+        <div class="grey" role="img" aria-label="Two grey squares on a light-to-dark gradient. They are the same grey, #808080.">
+          <div class="grey__grad"></div>
+          <div class="grey__sq grey__sq--a"></div><div class="grey__bar"></div><div class="grey__sq grey__sq--b"></div>
+          <span class="probe probe--a">#808080</span><span class="probe probe--b">#808080</span>
+        </div>
+        <div class="guess" role="group" aria-label="Your answer">
+          <button type="button" class="chip" data-guess="left">Left</button>
+          <button type="button" class="chip" data-guess="right">Right</button>
+          <button type="button" class="chip" data-guess="same">Same</button>
+        </div>
+        <div class="exp-card__row">
+          <button type="button" class="btn btn--chrome btn--sm" data-reveal-btn aria-pressed="false"><span>Reveal</span></button>
+          <p class="exp-card__msg" aria-live="polite">Context changes everything, including how customers see your brand.</p>
+        </div>
+      </article>
+      <article class="exp-card" id="lab-lines" data-reveal>
+        <header><span class="exp-card__n">Illusion 02</span><h3>Which line is longer?</h3></header>
+        <svg class="ml" viewBox="0 0 320 200" role="img" aria-label="Two horizontal lines with arrow fins. They are exactly the same length.">
+          <g class="ml__guides"><line x1="60" y1="20" x2="60" y2="180"/><line x1="260" y1="20" x2="260" y2="180"/></g>
+          <g class="ml__line"><line x1="60" y1="60" x2="260" y2="60"/></g>
+          <g class="ml__fins ml__fins--in"><polyline points="84,38 60,60 84,82"/><polyline points="236,38 260,60 236,82"/></g>
+          <g class="ml__line"><line x1="60" y1="140" x2="260" y2="140"/></g>
+          <g class="ml__fins ml__fins--out"><polyline points="36,118 60,140 36,162"/><polyline points="284,118 260,140 284,162"/></g>
+          <text class="ml__len" x="160" y="104" text-anchor="middle">200 = 200</text>
+        </svg>
+        <div class="guess" role="group" aria-label="Your answer">
+          <button type="button" class="chip" data-guess="top">Top</button>
+          <button type="button" class="chip" data-guess="bottom">Bottom</button>
+          <button type="button" class="chip" data-guess="same">Same</button>
+        </div>
+        <div class="exp-card__row">
+          <button type="button" class="btn btn--chrome btn--sm" data-reveal-btn aria-pressed="false"><span>Reveal</span></button>
+          <p class="exp-card__msg" aria-live="polite">The arrows lie. The lines do not.</p>
+        </div>
+      </article>
+      <article class="exp-card" id="lab-colour" data-reveal>
+        <header><span class="exp-card__n">Illusion 03</span><h3>Are the red bars the same colour?</h3></header>
+        <svg class="mw" viewBox="0 0 320 200" role="img" aria-label="Red bars woven with yellow stripes on the left and blue stripes on the right. Every red bar is the same colour, #E8455A.">
+          <defs>
+            <pattern id="stY" width="320" height="16" patternUnits="userSpaceOnUse"><rect width="320" height="8" fill="#F2D21B"/></pattern>
+            <pattern id="stB" width="320" height="16" patternUnits="userSpaceOnUse"><rect width="320" height="8" fill="#2F5BFF"/></pattern>
+          </defs>
+          <rect class="mw__bg" x="0" y="0" width="320" height="200" rx="14"/>
+          <g class="mw__stripes"><rect x="12" y="16" width="140" height="168" fill="url(#stY)"/><rect x="168" y="16" width="140" height="168" fill="url(#stB)"/></g>
+          <g class="mw__bars" fill="#E8455A"><rect x="50" y="72" width="64" height="8"/><rect x="50" y="88" width="64" height="8"/><rect x="50" y="104" width="64" height="8"/><rect x="50" y="120" width="64" height="8"/><rect x="206" y="72" width="64" height="8"/><rect x="206" y="88" width="64" height="8"/><rect x="206" y="104" width="64" height="8"/><rect x="206" y="120" width="64" height="8"/></g>
+        </svg>
+        <div class="guess" role="group" aria-label="Your answer">
+          <button type="button" class="chip" data-guess="no">Different</button>
+          <button type="button" class="chip" data-guess="same">Same</button>
+        </div>
+        <div class="exp-card__row">
+          <button type="button" class="btn btn--chrome btn--sm" data-reveal-btn aria-pressed="false"><span>Reveal</span></button>
+          <p class="exp-card__msg" aria-live="polite">Neighbours change colour. So do brand palettes.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section shop" id="shop" aria-labelledby="shop-title">
+  <div class="wrap">
+    <div class="head head--row" data-reveal>
+      <div>
+        <p class="eyebrow"><i class="dot"></i>Shop the perception</p>
+        <h2 class="h2" id="shop-title">Useful picks from <span class="holo">the ZMS Store.</span></h2>
+        <p class="lead">Tools for money, work and focus, plus a pack of brain games.</p>
+      </div>
+      <a class="btn btn--ghost magnetic" href="https://zmshub.github.io/zms/store/" target="_blank" rel="noopener"><span>See the full ZMS Store</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="shop__grid"><article class="prod tilt" data-reveal><div class="prod__media"><img src="https://zmshub.github.io/zms/freelancer-kit/cover.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Freelancer Business Kit cover"></div><div class="prod__body"><h3>Freelancer Business Kit</h3><p>Invoice, quote, contract and client tracker</p><div class="prod__row"><span class="pill">₹149</span><a class="btn btn--sm btn--chrome" href="https://superprofile.bio/vp/freelancer-business-kit---invoice--quote--contract---tracker" target="_blank" rel="noopener"><span>Get the kit</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div><i class="shine" aria-hidden="true"></i></article><article class="prod tilt" data-reveal><div class="prod__media"><img src="https://zmshub.github.io/zms/debt-payoff-tracker/cover.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Debt Payoff Tracker cover"></div><div class="prod__body"><h3>Debt Payoff Tracker</h3><p>Snowball vs avalanche calculator for Excel and Google Sheets</p><div class="prod__row"><span class="pill">₹149</span><a class="btn btn--sm btn--chrome" href="https://superprofile.bio/vp/6aceb9c821e1ab0013b00892" target="_blank" rel="noopener"><span>Get the tracker</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div><i class="shine" aria-hidden="true"></i></article><article class="prod tilt" data-reveal><div class="prod__media"><img src="https://zmshub.github.io/zms/spendwise/cover.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="SpendWise Salary &amp; Expense Tracker cover"></div><div class="prod__body"><h3>SpendWise Salary &amp; Expense Tracker</h3><p>For Excel and Google Sheets</p><div class="prod__row"><span class="pill">₹149</span><a class="btn btn--sm btn--chrome" href="https://superprofile.bio/vp/spendwise-%E2%80%93-salary---expense-tracker--excel---google-sheets-" target="_blank" rel="noopener"><span>Get SpendWise</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div><i class="shine" aria-hidden="true"></i></article><article class="prod tilt" data-reveal><div class="prod__media"><img src="https://zmshub.github.io/zms/brain-games-puzzles/cover.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Brain Games Puzzle Pack cover"></div><div class="prod__body"><h3>Brain Games Puzzle Pack</h3><p>120 printable puzzles with answers (PDF)</p><div class="prod__row"><span class="pill">₹99</span><a class="btn btn--sm btn--chrome" href="https://superprofile.bio/vp/brain-games-puzzle-pack---120-printable-puzzles-with-answers--pdf-" target="_blank" rel="noopener"><span>Get the puzzles</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div><i class="shine" aria-hidden="true"></i></article><article class="prod tilt" data-reveal><div class="prod__media"><img src="https://zmshub.github.io/zms/30-day-discipline-tracker/cover.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="30-Day Discipline Tracker cover"></div><div class="prod__body"><h3>30-Day Discipline Tracker</h3><p>Habit and streak tracker for Excel, Sheets and PDF</p><div class="prod__row"><span class="pill">₹199</span><a class="btn btn--sm btn--chrome" href="https://superprofile.bio/vp/30-day-discipline-tracker" target="_blank" rel="noopener"><span>Get the tracker</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div><i class="shine" aria-hidden="true"></i></article></div>
+  </div>
+</section>
+
+<section class="section work" id="work" aria-labelledby="work-title">
+  <div class="wrap work__box" data-reveal>
+    <div class="work__ring" aria-hidden="true"><img src="mark-white.webp" width="180" height="240" alt="" loading="lazy"></div>
+    <p class="eyebrow"><i class="dot"></i>Work with ZMS</p>
+    <h2 class="h2 work__title" id="work-title">Want your brand perceived <span class="holo">differently?</span></h2>
+    <p class="work__kicker">ZMS · creative studio</p>
+    <p class="lead"><strong>Logos, brands, websites, generative product photos, reels and a month of content in 24 hours</strong>, for clients worldwide.</p>
+    <div class="work__ctas">
+      <a class="btn btn--chrome btn--lg magnetic" href="https://zerominutestudios.ing.ng" target="_blank" rel="noopener"><span>ZMS Studios</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="btn btn--ghost btn--lg magnetic" href="https://zerominutestudio.ing.ng" target="_blank" rel="noopener"><span>ZMS Studio (multimedia)</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="btn btn--ghost btn--lg magnetic" href="https://zmshub.github.io/" target="_blank" rel="noopener"><span>ZMS Hub</span><svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+  <p class="bigword" aria-hidden="true">See it differently.</p>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <a class="brand" href="#top" aria-label="Perception, back to top">
+      <img class="brand__mark" src="mark-white.webp" width="180" height="240" alt="" loading="lazy">
+      <span class="brand__word">PERCEPTION</span>
+    </a>
+    <p class="foot__note">Perception is a media channel by ZMS. Brands shown in Perception series are fictional or concept work. Some visuals are generative.</p>
+    <nav class="foot__links" aria-label="Footer">
+      <a href="https://www.instagram.com/zerominutestudios.zms/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://zmshub.github.io/" target="_blank" rel="noopener">ZMS Hub</a>
+      <a href="#series">Series</a><a href="#lab">Lab</a><a href="#shop">Shop</a><a href="#work">Work</a>
+    </nav>
+    <p class="foot__copy">© 2026 ZMS</p>
+  </div>
+</footer>
+<script src="app.js" defer></script>
+</body>
 </html>
