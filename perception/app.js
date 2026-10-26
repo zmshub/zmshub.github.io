@@ -138,6 +138,48 @@
     });
   }
 
+
+  /* ---------- 3D business card ---------- */
+  (function () {
+    var tilt = $("#bcTilt"), card = $("#bcCard"), btn = $("#bcFlip"), front = $("#bcFront"), back = $("#bcBack");
+    if (!tilt || !card || !btn) return;
+    var flipped = false, downX = 0, downY = 0, moved = false;
+    function setFlip(v) {
+      flipped = v;
+      card.classList.toggle("is-flipped", v);
+      card.classList.add("is-touched");
+      btn.setAttribute("aria-pressed", v ? "true" : "false");
+      btn.querySelector(".bc__flip-t").textContent = v ? "Flip back" : "Flip card";
+      if (v) { back.removeAttribute("inert"); front.setAttribute("inert", ""); }
+      else { front.removeAttribute("inert"); back.setAttribute("inert", ""); }
+    }
+    btn.addEventListener("click", function () { setFlip(!flipped); });
+    card.addEventListener("pointerdown", function (e) { downX = e.clientX; downY = e.clientY; moved = false; });
+    card.addEventListener("click", function (e) {
+      if (e.target.closest("a")) return;
+      if (moved) return;
+      setFlip(!flipped);
+    });
+    function aim(e) {
+      var r = tilt.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      x = Math.min(1, Math.max(0, x)); y = Math.min(1, Math.max(0, y));
+      if (Math.abs(e.clientX - downX) + Math.abs(e.clientY - downY) > 8) moved = true;
+      if (RM) return;
+      tilt.classList.add("is-live");
+      card.classList.add("is-touched");
+      tilt.style.transform = "rotateX(" + ((0.5 - y) * 22).toFixed(2) + "deg) rotateY(" + ((x - 0.5) * 26).toFixed(2) + "deg)";
+      var gx = (flipped ? (1 - x) : x) * 100;
+      card.style.setProperty("--gx", gx.toFixed(1) + "%");
+      card.style.setProperty("--gy", (y * 100).toFixed(1) + "%");
+      $$(".bc__glare", card).forEach(function (g) { g.style.setProperty("--gx", gx.toFixed(1) + "%"); g.style.setProperty("--gy", (y * 100).toFixed(1) + "%"); });
+    }
+    function rest() { tilt.classList.remove("is-live"); tilt.style.transform = ""; }
+    tilt.addEventListener("pointermove", aim);
+    tilt.addEventListener("pointerleave", rest);
+    tilt.addEventListener("pointerup", function (e) { if (e.pointerType !== "mouse") setTimeout(rest, 250); });
+    tilt.addEventListener("pointercancel", rest);
+  })();
+
   /* ---------- hero cube ---------- */
   var hero = $(".hero"), stage = $("#stage"), world = $("#world"), cube = $("#cube");
   var faces = cube ? {
