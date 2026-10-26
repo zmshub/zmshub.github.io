@@ -139,45 +139,90 @@
   }
 
 
-  /* ---------- 3D business card ---------- */
+  /* ---------- 3D business card: drag to spin 360, flick for momentum, tap to flip ---------- */
   (function () {
     var tilt = $("#bcTilt"), card = $("#bcCard"), btn = $("#bcFlip"), front = $("#bcFront"), back = $("#bcBack");
     if (!tilt || !card || !btn) return;
-    var flipped = false, downX = 0, downY = 0, moved = false;
-    function setFlip(v) {
-      flipped = v;
-      card.classList.toggle("is-flipped", v);
-      card.classList.add("is-touched");
-      btn.setAttribute("aria-pressed", v ? "true" : "false");
-      btn.querySelector(".bc__flip-t").textContent = v ? "Flip back" : "Flip card";
-      if (v) { back.removeAttribute("inert"); front.setAttribute("inert", ""); }
+    var rotY = 0, rotX = 0, drag = null, vY = 0, vX = 0, raf = 0, lastX = 0, lastY = 0, lastT = 0, hover = false;
+    var glares = $$(".bc__glare", card);
+    function showingBack() { var n = ((rotY % 360) + 360) % 360; return n > 90 && n < 270; }
+    function sync() {
+      var f = showingBack();
+      btn.setAttribute("aria-pressed", f ? "true" : "false");
+      btn.querySelector(".bc__flip-t").textContent = f ? "Flip back" : "Flip card";
+      if (f) { back.removeAttribute("inert"); front.setAttribute("inert", ""); }
       else { front.removeAttribute("inert"); back.setAttribute("inert", ""); }
     }
-    btn.addEventListener("click", function () { setFlip(!flipped); });
-    card.addEventListener("pointerdown", function (e) { downX = e.clientX; downY = e.clientY; moved = false; });
-    card.addEventListener("click", function (e) {
-      if (e.target.closest("a")) return;
-      if (moved) return;
-      setFlip(!flipped);
-    });
-    function aim(e) {
-      var r = tilt.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-      x = Math.min(1, Math.max(0, x)); y = Math.min(1, Math.max(0, y));
-      if (Math.abs(e.clientX - downX) + Math.abs(e.clientY - downY) > 8) moved = true;
-      if (RM) return;
-      tilt.classList.add("is-live");
-      card.classList.add("is-touched");
-      tilt.style.transform = "rotateX(" + ((0.5 - y) * 22).toFixed(2) + "deg) rotateY(" + ((x - 0.5) * 26).toFixed(2) + "deg)";
-      var gx = (flipped ? (1 - x) : x) * 100;
-      card.style.setProperty("--gx", gx.toFixed(1) + "%");
-      card.style.setProperty("--gy", (y * 100).toFixed(1) + "%");
-      $$(".bc__glare", card).forEach(function (g) { g.style.setProperty("--gx", gx.toFixed(1) + "%"); g.style.setProperty("--gy", (y * 100).toFixed(1) + "%"); });
+    function draw() {
+      card.style.transform = "rotateX(" + rotX.toFixed(2) + "deg) rotateY(" + rotY.toFixed(2) + "deg)";
+      var r = rotY * Math.PI / 180, gx = 50 - Math.sin(r) * 55, gy = 35 - rotX * 1.6;
+      glares.forEach(function (g) { g.style.setProperty("--gx", gx.toFixed(1) + "%"); g.style.setProperty("--gy", gy.toFixed(1) + "%"); });
+      sync();
     }
-    function rest() { tilt.classList.remove("is-live"); tilt.style.transform = ""; }
-    tilt.addEventListener("pointermove", aim);
-    tilt.addEventListener("pointerleave", rest);
-    tilt.addEventListener("pointerup", function (e) { if (e.pointerType !== "mouse") setTimeout(rest, 250); });
-    tilt.addEventListener("pointercancel", rest);
+    function stopAnim() { if (raf) cancelAnimationFrame(raf); raf = 0; }
+    function settle(target) {
+      stopAnim();
+      var t0 = performance.now(), y0 = rotY, x0 = rotX, dur = 700;
+      (function step(now) {
+        var k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+        rotY = y0 + (target - y0) * e; rotX = x0 * (1 - e); draw();
+        if (k < 1) raf = requestAnimationFrame(step); else raf = 0;
+      })(t0);
+    }
+    function nearest() { return Math.round(rotY / 180) * 180; }
+    function coast() {
+      stopAnim();
+      if (RM) { settle(nearest()); return; }
+      (function step() {
+        rotY += vY; rotX = Math.max(-35, Math.min(35, rotX + vX));
+        vY *= 0.95; vX *= 0.85; draw();
+        if (Math.abs(vY) > 0.35) raf = requestAnimationFrame(step); else settle(nearest());
+      })();
+    }
+    function begin() { card.classList.add("is-touched"); card.style.transition = "none"; }
+    btn.addEventListener("click", function () { begin(); settle(nearest() + 180); });
+    card.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { begin(); settle(nearest() + 180); e.preventDefault(); }
+      if (e.key === "ArrowLeft") { begin(); settle(nearest() - 180); e.preventDefault(); }
+    });
+    tilt.addEventListener("pointerdown", function (e) {
+      if (e.target.closest("a")) return;
+      begin(); stopAnim();
+      drag = { x: e.clientX, y: e.clientY, moved: false, id: e.pointerId, y0: rotY, x0: rotX };
+      lastX = e.clientX; lastY = e.clientY; lastT = performance.now(); vY = vX = 0;
+    });
+    tilt.addEventListener("pointermove", function (e) {
+      if (drag && e.pointerId === drag.id) {
+        var dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+        if (!drag.moved) {
+          if (Math.abs(dx) > 6 && Math.abs(dx) >= Math.abs(dy)) { drag.moved = true; try { tilt.setPointerCapture(e.pointerId); } catch (_) {} }
+          else if (Math.abs(dy) > 10) { drag = null; return; }
+          else return;
+        }
+        var now = performance.now(), dt = Math.max(8, now - lastT);
+        vY = (e.clientX - lastX) * 0.7 * (16 / dt); vX = -(e.clientY - lastY) * 0.3 * (16 / dt);
+        lastX = e.clientX; lastY = e.clientY; lastT = now;
+        rotY = drag.y0 + dx * 0.7; rotX = Math.max(-35, Math.min(35, drag.x0 - dy * 0.3));
+        draw();
+      } else if (!drag && !raf && FINE && !RM) {
+        var r = tilt.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        begin(); hover = true;
+        rotX = (0.5 - y) * 14; var base = nearest(); rotY = base + (x - 0.5) * 18; draw();
+      }
+    });
+    function end(e) {
+      if (!drag) return;
+      var d = drag; drag = null;
+      if (!d.moved) { if (e && e.type === "pointerup" && !e.target.closest("a")) settle(nearest() + 180); return; }
+      if (performance.now() - lastT > 90) { vY = 0; vX = 0; }
+      coast();
+    }
+    tilt.addEventListener("pointerup", end);
+    tilt.addEventListener("pointercancel", end);
+    tilt.addEventListener("pointerleave", function () { if (!drag && !raf && hover) { hover = false; settle(nearest()); } });
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("aria-label", "ZMS business card. Drag to spin it all the way round, or use the arrow keys or the Flip card button.");
+    draw();
   })();
 
   /* ---------- hero cube ---------- */
